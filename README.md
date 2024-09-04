@@ -1,11 +1,14 @@
+# <font color = "red"> 이 문서는 임시 brench에서 작업된 내용입니다. 만일 이 문장을 보셨다면 branch를 꼭 확인해주세요.</font>
+
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,5,10&height=300&section=header&text=딥하조%20study&fontSize=90)
 
+
 <div align="center">
- <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FnOctaveLay%2F2024-Boostcamp-CV-18&count_bg=%23959BA2&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
-  <img src="https://img.shields.io/github/forks/nOctaveLay/2024-Boostcamp-CV-18" alt="forks"/>
-  <img src="https://img.shields.io/github/stars/nOctaveLay/2024-Boostcamp-CV-18?color=yellow" alt="stars"/>
-  <img src="https://img.shields.io/github/issues-pr/nOctaveLay/2024-Boostcamp-CV-18?color=green" alt="pr"/>
-  <img src="https://img.shields.io/github/issues/nOctaveLay/2024-Boostcamp-CV-18?color=blue" alt="issues"/>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FnOctaveLay%2F2024-Boostcamp-CV-18&count_bg=%23959BA2&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
+<img src="https://img.shields.io/github/forks/nOctaveLay/2024-Boostcamp-CV-18" alt="forks"/>
+<img src="https://img.shields.io/github/stars/nOctaveLay/2024-Boostcamp-CV-18?color=yellow" alt="stars"/>
+<img src="https://img.shields.io/github/issues-pr/nOctaveLay/2024-Boostcamp-CV-18?color=green" alt="pr"/>
+<img src="https://img.shields.io/github/issues/nOctaveLay/2024-Boostcamp-CV-18?color=blue" alt="issues"/>
 </div>
 
 ## 💡 프로젝트 소개
@@ -14,11 +17,11 @@
 - 코스를 진행하면서 개인적으로 공부하거나 혹은 경험한 것에 대해 알기 쉽게 정리합니다.
 
 >[!CAUTION]
->네이버 부스트 캠프의 내용은 포함되어있지 않습니다. 
+>네이버 부스트 캠프의 내용은 포함되어있지 않습니다.
 
 ## 👪 팀원 소개
-<!--![](https://avatars.githubusercontent.com/chan-note)-->
-| <img src="https://github.com/user-attachments/assets/4733c64b-bc14-4798-9d14-557dda50caf0" width="400"  alt="chan-note"> | ![](https://avatars.githubusercontent.com/Donghwan127) | ![](https://avatars.githubusercontent.com/batwan01) | ![](https://avatars.githubusercontent.com/taehan79-kim) | ![](https://avatars.githubusercontent.com/nOctaveLay) | ![](https://avatars.githubusercontent.com/Two-Silver) |
+
+| ![](https://avatars.githubusercontent.com/chan-note) | ![](https://avatars.githubusercontent.com/Donghwan127) | ![](https://avatars.githubusercontent.com/batwan01) | ![](https://avatars.githubusercontent.com/taehan79-kim) | ![](https://avatars.githubusercontent.com/nOctaveLay) | ![](https://avatars.githubusercontent.com/Two-Silver) |
 | ---------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
 | [임찬혁](https://github.com/chan-note)                  | [서동환](https://github.com/Donghwan127)                  | 🦇[박지완](https://github.com/batwan01)          | [김태한](https://github.com/taehan79-kim)                  | [임정아](https://github.com/nOctaveLay)                  | 🐡[이은아](https://github.com/Two-Silver)                  |
 
@@ -63,11 +66,8 @@
 
 ## 주의 사항
 
->*Warning*
-
 1. PR 요청 시 [작성 규칙]을 준수해주세요. 준수하지 않을 시 해당 PR은 거절됩니다
-2. **절대 부스트캠프의 내용을 포함하지 마세요**.
-
-## 예정 사항
-
-- Github Action을 사용해 PR이 승인되면 자동으로 README.md에 올리는 것을 고려하고 있습니다.
+2. 요구 사항 및 건의 사항은 issue로 등록해주세요.
+  - 반드시 요구 사항 및 건의 사항이 받아드려지는 것은 아닙니다. 이 경우 issue는 거절될 수 있습니다.
+  - 향후 개발 내용도 issue로 등록됩니다. 이 경우, 이 문항에 대한 개발자가 할당됩니다.
+3. **절대 부스트캠프의 내용을 포함하지 마세요**.
