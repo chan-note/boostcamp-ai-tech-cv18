@@ -1,5 +1,4 @@
-<h1> <font color = "red">이 문서는 임시 brench에서 작업된 내용입니다.
-만일 이 문장을 보셨다면 branch를 꼭 확인해주세요.</font> </h1>
+# <font color = "red"> 이 문서는 임시 brench에서 작업된 내용입니다. 만일 이 문장을 보셨다면 branch를 꼭 확인해주세요.</font> 
 
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,5,10&height=300&section=header&text=딥하조%20study&fontSize=90)
 
