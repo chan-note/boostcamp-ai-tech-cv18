@@ -17,8 +17,8 @@
 >네이버 부스트 캠프의 내용은 포함되어있지 않습니다. 
 
 ## 👪 팀원 소개
-
-| ![](https://avatars.githubusercontent.com/chan-note) | ![](https://avatars.githubusercontent.com/Donghwan127) | ![](https://avatars.githubusercontent.com/batwan01) | ![](https://avatars.githubusercontent.com/taehan79-kim) | ![](https://avatars.githubusercontent.com/nOctaveLay) | ![](https://avatars.githubusercontent.com/Two-Silver) |
+<!--![](https://avatars.githubusercontent.com/chan-note)-->
+| <img src="https://github.com/user-attachments/assets/4733c64b-bc14-4798-9d14-557dda50caf0" width="400"  alt="chan-note"> | ![](https://avatars.githubusercontent.com/Donghwan127) | ![](https://avatars.githubusercontent.com/batwan01) | ![](https://avatars.githubusercontent.com/taehan79-kim) | ![](https://avatars.githubusercontent.com/nOctaveLay) | ![](https://avatars.githubusercontent.com/Two-Silver) |
 | ---------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
 | [임찬혁](https://github.com/chan-note)                  | [서동환](https://github.com/Donghwan127)                  | 🦇[박지완](https://github.com/batwan01)          | [김태한](https://github.com/taehan79-kim)                  | [임정아](https://github.com/nOctaveLay)                  | 🐡[이은아](https://github.com/Two-Silver)                  |
 
