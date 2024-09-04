@@ -1,5 +1,10 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,5,10&height=300&section=header&text=딥하조%20study&fontSize=90)
 
+
+<p style="color:red">이 문서는 임시 brench에서 작업된 내용입니다.
+만일 이 문장을 보셨다면 branch를 꼭 확인해주세요.</p>
+
+
 <div align="center">
  <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FnOctaveLay%2F2024-Boostcamp-CV-18&count_bg=%23959BA2&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
   <img src="https://img.shields.io/github/forks/nOctaveLay/2024-Boostcamp-CV-18" alt="forks"/>
