@@ -20,12 +20,17 @@ from datetime import datetime, timedelta
 
 def find_topic(topic:str, content_list:list):
     i = 0
+    now = datetime.now()
+    end = now + timedelta(days = 5)
+    date_format = f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}\n\n"
     while i < len(content_list):
         new_string = content_list[i].strip()
-
-        if new_string[:len(topic)] == topic:
+        if new_string == date_format.strip():
+            return -1
+        elif new_string[:len(topic)] == topic:
             return i
-        i += 1
+        else:
+            i += 1
     return i
 
 
@@ -44,7 +49,7 @@ def add_new_contents(topic:str, text_file_path = "./README.md"):
     new_contents = ''
 
     date_format = f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}\n\n"
-    name_format = '**📍임찬혁**\n**📍서동환**\n**📍박지완**\n**📍김태한**\n**📍임정아**\n**📍이은아**\n\n' #form 수정 필요
+    name_format = '**📍임찬혁**\n**📍서동환**\n**📍박지완**\n**📍김태한**\n**📍임정아**\n**📍이은아**\n' #form 수정 필요
     put_string = date_format + name_format
 
     with open(text_file_path,'r',encoding = 'utf-8') as f:
@@ -55,26 +60,21 @@ def add_new_contents(topic:str, text_file_path = "./README.md"):
             new_contents += new_string + "\n"
 
             if new_string == topic:
-                # # topic의 맨 아랫단에 추가해야 함
-                # # topic은 같은 형식으로 되어 있음.
-                # # 맨 처음엔 빈줄
-                # # 그 다음부터 추가해야 하는 form이 이루어짐
-                # # form과 form 사이는 빈줄로 구분
-                # # 요 모든 것을 찾는 게 다음 단의 topic임
-                # # 다음 단의 topic을 바로 찾고, 그 위에 추가하면 되지 않을까
 
                 next_line = i+1
                 a = find_topic("## ",lines[next_line:])
 
-                # 다음 topic 전까지 전부 추가
-                new_contents += "".join(lines[next_line:next_line+a])
+                if a >= 0:
+                    # 다음 topic 전까지 전부 추가
+                    new_contents += "".join(lines[next_line:next_line+a])
 
-                # topic부분에 내용 추가
-                new_contents += put_string + "\n"
+                    # topic부분에 내용 추가
+                    new_contents += put_string + "\n"
 
-                # # 뒷 내용 추가, break
-                new_contents += "".join(lines[next_line+a:])
-                print(new_contents)
+                    # # 뒷 내용 추가, break
+                    new_contents += "".join(lines[next_line+a:])
+                else:
+                    new_contents += "".join(lines[next_line:])
                 break
             i += 1
 
@@ -84,5 +84,6 @@ def add_new_contents(topic:str, text_file_path = "./README.md"):
 
 def update_week():
     add_new_contents("## 👋주간 회고지")
+    add_new_contents("## 📝주간 정리 (optional)")
 
 update_week()
