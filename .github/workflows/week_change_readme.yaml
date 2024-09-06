@@ -1,0 +1,29 @@
+name: Change Readme Weekly
+
+on:
+    schedule: 
+        - cron: '0 */24 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # jobs로 들어오는 걸 목적으로 함
+    - name: Checkout
+      uses: actions/checkout@v4.1.7
+      
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    # - run: ls ${{ github.workspace }}
+    - run: python generate_readme.py
+
+    - name: Git Push Action
+      run: |
+        git config --global user.name "nOctaveLay"
+        git config --global user.email "wjddkdml1124@naver.com"
+        git checkout "임정아"
+        git add .
+        git commit -m "change readme.md automatically"
+        git push
