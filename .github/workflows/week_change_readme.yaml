@@ -2,7 +2,7 @@ name: Change Readme Weekly
 
 on:
     schedule: 
-        - cron: '0 */24 * * *'
+        - cron: '30 10 * * 1'
 
 jobs:
   build:
