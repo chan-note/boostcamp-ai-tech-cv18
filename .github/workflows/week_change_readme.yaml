@@ -23,7 +23,6 @@ jobs:
       run: |
         git config --global user.name ${{vars.name}}
         git config --global user.email ${{vars.email}}
-        git checkout "임정아"
         git add .
         git commit -m "change readme.md monthly automatically"
         git push
