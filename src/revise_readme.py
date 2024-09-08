@@ -20,7 +20,7 @@ def return_index_next_matching(matching:str, lines:list):
     for line_number, line in enumerate(lines):
         line = line.strip()
         # 날짜가 겹치는 지 확인한다. 겹치면 -1
-        if line == generate_week_title():
+        if line == generate_week_title() or line == generate_paper_title():
             return -1
         elif matching == line[:len(matching)]:
             return line_number
@@ -33,8 +33,6 @@ def return_new_contents(contents:str, file_name:str, matching:str, next_string="
     # 내가 추가할 날짜와 겹친다면 내용을 수정하지 않는다.
     # 추가할 곳을 찾았다면, 바꾼다.
     # 변경된 data로 README.md를 update한다.
-    print(contents,file_name)
-
     # README.md를 읽는다.
     new_contents = ''
     with open(file_name, 'r', encoding='utf-8') as f:
@@ -90,16 +88,17 @@ if __name__ == "__main__":
 
     if args.position:
         category,title,name = split_category_and_title(args.position)
-        print(save_position)
         if category == "papers":
             revise_data = revise_paper_format(title,name,args.position)
             revise_ = return_new_contents(revise_data+"\n", save_position, '## 📚논문 정리')
+            update_text(revise_, save_position)
         elif category == "retros":
             next_string = f"- **📍{name}"
             revise_data = revise_week_format(title,args.position)
             revise_ = return_new_contents(revise_data+"\n", save_position, "## 👋주간 회고지", next_string = next_string, written_front=False)
+            update_text(revise_, save_position)
         elif category == "notes":
             next_string = f"- **📍{name}"
             revise_data = revise_week_format(title,args.position)
             revise_ = return_new_contents(revise_data+"\n", save_position, "## 📝주간 정리 (optional)", next_string = next_string, written_front=False)
-        update_text(revise_, save_position)
+            update_text(revise_, save_position)

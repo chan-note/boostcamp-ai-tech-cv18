@@ -9,7 +9,7 @@ def generate_week_title():
     return f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}"
 
 def generate_paper_title():
-    return f"## {now.month}월 논문 발표"
+    return f"### {now.month}월 논문 발표"
 
 def generate_paper_format():
     return f"\n{generate_paper_title()}\n\n| 논문 제목 | 리뷰어 |\n| ----- | --- |"
