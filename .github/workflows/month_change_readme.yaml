@@ -2,7 +2,7 @@ name: Change Readme Weekly
 
 on:
     schedule: 
-        - cron: '30 10 * * 1'
+        - cron: '10 10 */31 * *'
 
 jobs:
   build:
@@ -25,5 +25,5 @@ jobs:
         git config --global user.email ${{vars.email}}
         git checkout "임정아"
         git add .
-        git commit -m "change readme.md weekly automatically"
+        git commit -m "change readme.md monthly automatically"
         git push
