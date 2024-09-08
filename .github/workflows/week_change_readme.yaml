@@ -8,6 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      
     # jobs로 들어오는 걸 목적으로 함
     - name: Checkout
       uses: actions/checkout@v4.1.7
