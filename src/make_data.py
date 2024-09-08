@@ -20,8 +20,11 @@ def generate_week_format():
     return f'\n{week_format}\n\n{data}'
 
 def generate_paper_format(changed_file:str):
+    # 위치 분리
+    directory_and_name = changed_file.split("/")
+
     # 확장자 분리
-    name_list,_ = changed_file.split(".")
+    name_list,_ = directory_and_name[-1].split(".")
 
     # title, 이름, 버전으로 분리
     name_list = name_list.split("_")
