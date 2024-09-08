@@ -3,11 +3,16 @@ from datetime import datetime, timedelta
 now = datetime.now()
 end = now + timedelta(days = 5)
 
-def generate_paper(paper_name:str, reviewer:str):
-    return f'|{paper_name}|{reviewer}|'
+__init__ = ['generate_week_title', 'generate_paper_title', 'generate_paper', 'generate_week_format']
 
 def generate_week_title():
     return f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}"
+
+def generate_paper_title():
+    return f"## {now.month}월 논문 발표"
+
+def generate_paper(paper_name:str, reviewer:str):
+    return f'|{paper_name}|{reviewer}|'
 
 def generate_week_format():
     week_format = generate_week_title()
