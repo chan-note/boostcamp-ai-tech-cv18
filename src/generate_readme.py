@@ -1,5 +1,13 @@
+import argparse
 from datetime import datetime, timedelta
 
+# set arguement
+parser = argparse.ArgumentParser(description = 'Revise Readme')
+parser.add_argument('-w','--week', action='store_true')
+parser.add_argument('-m','--month', action='store_true')
+parser.add_argument('-pos','--position')
+
+# set data
 now = datetime.now()
 end = now + timedelta(days = 5)
 week_format = f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}"
@@ -87,8 +95,17 @@ def update_text(contents:str, file_name:str):
 
 
 if __name__ == "__main__":
-    retro = return_new_contents(week_format+"\n\n"+data+"\n","./README.md", "## 👋주간 회고지")
-    update_text(retro,"./README.md")
+    args = parser.parse_args()
+    save_position = "./README.md" if args.position == None else args.position
     
-    note = return_new_contents(week_format+"\n\n"+data+"\n","./README.md", "## 📝주간 정리 (optional)")
-    update_text(note,"./README.md")
+    if args.week:
+        retro = return_new_contents(week_format+"\n\n"+data+"\n",save_position, "## 👋주간 회고지")
+        update_text(retro,save_position)
+        
+        note = return_new_contents(week_format+"\n\n"+data+"\n",save_position, "## 📝주간 정리 (optional)")
+        update_text(note,save_position)
+
+    if args.month:
+        # paper update
+        paper = return_new_contents(week_format+"\n\n"+data+"\n",save_position, f"## {now.month}월 논문 발표")
+        update_text(paper,save_position)
