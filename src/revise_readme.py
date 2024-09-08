@@ -1,4 +1,4 @@
-import argparse
+import sys,argparse
 from datetime import datetime
 from make_data import *
 
@@ -6,6 +6,7 @@ from make_data import *
 parser = argparse.ArgumentParser(description = 'Revise Readme')
 parser.add_argument('-w','--week', action='store_true')
 parser.add_argument('-m','--month', action='store_true')
+parser.add_argument('-c','--changed')
 parser.add_argument('-pos','--position')
 
 def return_index_next_matching(matching:str, lines:list):
@@ -17,15 +18,12 @@ def return_index_next_matching(matching:str, lines:list):
     '''
     for line_number, line in enumerate(lines):
         line = line.strip()
-        if matching == line[:len(matching)]:
-            # 날짜가 겹치는 지 확인한다.
-            # 겹치면 -1 (추가하지 말라)를 추가한다.
-            # 안 겹치면 그 줄의 line_number를 출력한다.
-                if matching == generate_week_title():
-                    return -1
-                else:
-                   return line_number
-    line_number += 1 
+        # 날짜가 겹치는 지 확인한다. 겹치면 -1
+        print(line, generate_week_title(), line == generate_week_title())
+        if line == generate_week_title():
+            return -1
+        elif matching == line[:len(matching)]:
+            return line_number
     return line_number
 
 def return_new_contents(contents:str, file_name:str, matching:str):
@@ -69,13 +67,12 @@ def update_text(contents:str, file_name:str):
     with open(file_name,'w',encoding='utf-8') as f:
         f.write(contents)
 
-
 if __name__ == "__main__":
     args = parser.parse_args()
     save_position = "./README.md" if args.position == None else args.position
-    week_data = generate_week_format()
 
     if args.week:
+        week_data = generate_week_format()
         retro = return_new_contents(week_data+"\n", save_position, "## 👋주간 회고지")
         update_text(retro,save_position)
         
@@ -83,6 +80,7 @@ if __name__ == "__main__":
         update_text(note,save_position)
 
     if args.month:
-        # paper update
-        paper = return_new_contents(week_data+"\n", save_position, generate_paper_title)
+        # paper update 
+        paper_data = generate_paper_format(args.changed)
+        paper = return_new_contents(paper_data+"\n", save_position, '## 📚논문 정리')
         update_text(paper,save_position)
