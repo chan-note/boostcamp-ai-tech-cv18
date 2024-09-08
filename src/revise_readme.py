@@ -1,5 +1,6 @@
 import argparse
-from datetime import datetime, timedelta
+from datetime import datetime
+from src import make_data
 
 # set arguement
 parser = argparse.ArgumentParser(description = 'Revise Readme')
@@ -9,9 +10,6 @@ parser.add_argument('-pos','--position')
 
 # set data
 now = datetime.now()
-end = now + timedelta(days = 5)
-week_format = f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}"
-data = '- **📍임찬혁**\n- **📍서동환**\n- **📍박지완**\n- **📍김태한**\n- **📍임정아**\n- **📍이은아**\n'
 
 def return_index_next_matching(matching:str, lines:list):
     '''
@@ -78,15 +76,16 @@ def update_text(contents:str, file_name:str):
 if __name__ == "__main__":
     args = parser.parse_args()
     save_position = "./README.md" if args.position == None else args.position
-    
+    week_data = make_data.generate_week_format()
+
     if args.week:
-        retro = return_new_contents(week_format+"\n\n"+data+"\n",save_position, "## 👋주간 회고지")
+        retro = return_new_contents(week_data+"\n", save_position, "## 👋주간 회고지")
         update_text(retro,save_position)
         
-        note = return_new_contents(week_format+"\n\n"+data+"\n",save_position, "## 📝주간 정리 (optional)")
+        note = return_new_contents(week_data+"\n", save_position, "## 📝주간 정리 (optional)")
         update_text(note,save_position)
 
     if args.month:
         # paper update
-        paper = return_new_contents(week_format+"\n\n"+data+"\n",save_position, f"## {now.month}월 논문 발표")
+        paper = return_new_contents(week_data+"\n", save_position, f"## {now.month}월 논문 발표")
         update_text(paper,save_position)

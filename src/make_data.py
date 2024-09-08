@@ -1,3 +1,8 @@
+
+from datetime import datetime, timedelta
+now = datetime.now()
+end = now + timedelta(days = 5)
+
 def generate_paper(paper_name:str, reviewer:str):
     return f'|{paper_name}|{reviewer}|'
 
