@@ -19,7 +19,6 @@ def return_index_next_matching(matching:str, lines:list):
     for line_number, line in enumerate(lines):
         line = line.strip()
         # 날짜가 겹치는 지 확인한다. 겹치면 -1
-        print(line, generate_week_title(), line == generate_week_title())
         if line == generate_week_title():
             return -1
         elif matching == line[:len(matching)]:
