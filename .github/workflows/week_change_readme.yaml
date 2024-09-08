@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      
+
     # jobs로 들어오는 걸 목적으로 함
     - name: Checkout
       uses: actions/checkout@v4.1.7
@@ -22,8 +22,8 @@ jobs:
 
     - name: Git Push Action
       run: |
-        git config --global user.name "nOctaveLay"
-        git config --global user.email "wjddkdml1124@naver.com"
+        git config --global user.name ${{vars.name}}
+        git config --global user.email ${{vars.email}}
         git checkout "임정아"
         git add .
         git commit -m "change readme.md automatically"
