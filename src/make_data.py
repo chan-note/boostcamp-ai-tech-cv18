@@ -16,11 +16,15 @@ def generate_paper(paper_name:str, reviewer:str):
 
 def generate_week_format():
     week_format = generate_week_title()
-    data = '- **📍임찬혁**\n- **📍서동환**\n- **📍박지완**\n- **📍김태한**\n- **📍임정아**\n- **📍이은아**\n'
-    return f'{week_format}\n\n{data}'
+    data = '- **📍임찬혁**\n- **📍서동환**\n- **📍박지완**\n- **📍김태한**\n- **📍임정아**\n- **📍이은아**'
+    return f'\n{week_format}\n\n{data}'
 
 def generate_paper_format(changed_file:str):
-    name_list = changed_file.split("_")
+    # 확장자 분리
+    name_list,_ = changed_file.split(".")
+
+    # title, 이름, 버전으로 분리
+    name_list = name_list.split("_")
     if name_list[-1].isdigit():
         name = name_list[-2]
         name_index = -2

@@ -49,11 +49,12 @@ def return_new_contents(contents:str, file_name:str, matching:str):
                 # 만약 contents가 겹친다면
                 if match_line_number == -1:
                     # 뒤의 모든 내용을 새롭게 저장하고 break
-                    new_contents = "".join(lines[line_number+1:])
+                    new_contents += "".join(lines[line_number+1:])
                     return new_contents
                 
                 # contents가 겹치지 않는다면
                 else:
+                    match_line_number -= 1
                     new_contents += "".join(lines[line_number+1:line_number+1+match_line_number])
                     # 그 matching된 곳에 써주고, 개행 문자를 남겨
                     new_contents += contents
