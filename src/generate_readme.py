@@ -13,25 +13,6 @@ end = now + timedelta(days = 5)
 week_format = f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}"
 data = '- **📍임찬혁**\n- **📍서동환**\n- **📍박지완**\n- **📍김태한**\n- **📍임정아**\n- **📍이은아**\n'
 
-def add_paper(change_contents:str, text_file_path = "../README.md"):
-    """
-    "README.md"의 paper를 월에 맞춰서 생성
-    """
-    new_contents = ''
-    with open(text_file_path,'r',encoding = 'utf-8') as f:
-        lines = f.readlines()
-        i = 0
-        while i < len(lines):
-            new_string = lines[i].strip()
-            new_contents += new_string + "\n"
-            if new_string == f"### {now.month}월 논문 발표":
-                new_contents += '\n'
-                j,result_string = (lines[i+2:],change_contents)
-                i = i+2+j
-                new_contents += result_string + '\n'
-            i += 1
-    print(new_contents)
-
 def return_index_next_matching(matching:str, lines:list):
     '''
     lines에서 matching과 일치하는 곳이 있다면,
