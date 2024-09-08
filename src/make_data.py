@@ -11,9 +11,6 @@ def generate_week_title():
 def generate_paper_title():
     return f"## {now.month}월 논문 발표"
 
-def generate_paper(paper_name:str, reviewer:str):
-    return f'|{paper_name}|{reviewer}|'
-
 def generate_paper_format():
     return f"\n{generate_paper_title()}\n\n| 논문 제목 | 리뷰어 |\n| ----- | --- |"
 
@@ -22,21 +19,27 @@ def generate_week_format():
     data = '- **📍임찬혁**\n- **📍서동환**\n- **📍박지완**\n- **📍김태한**\n- **📍임정아**\n- **📍이은아**'
     return f'\n{week_format}\n\n{data}'
 
-def revise_paper_format(changed_file:str):
-    # 위치 분리
+def split_category_and_title(changed_file:str):
+    # split directory and name
     directory_and_name = changed_file.split("/")
+    directory, name = directory_and_name[-2], directory_and_name[-1]
 
-    # 확장자 분리
-    name_list,_ = directory_and_name[-1].split(".")
+    # split title_name_version and extension
+    title_name_version, _ = name.split(".")
 
     # title, 이름, 버전으로 분리
-    name_list = name_list.split("_")
-    if name_list[-1].isdigit():
-        name = name_list[-2]
+    title_name_version = title_name_version.split("_")
+    if title_name_version[-1].isdigit():
+        name = title_name_version[-2]
         name_index = -2
     else:
-        name = name_list[-1]
+        name = title_name_version[-1]
         name_index = -1
-    return generate_paper(" ".join(name_list[0:name_index]),name)
+    title = " ".join(title_name_version[0:name_index])
+    return (directory,title,name)
 
-def revise_week_format(): pass
+def revise_paper_format(paper_name:str, reviewer:str, url:str):
+    return f'|{paper_name}|[{reviewer}]({url})|'
+
+def revise_week_format(title:str, url:str):
+    return f"\t- [{title}]({url})"
