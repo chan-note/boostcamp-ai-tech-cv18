@@ -81,6 +81,6 @@ if __name__ == "__main__":
 
     if args.month:
         # paper update 
-        paper_data = generate_paper_format(args.changed)
+        paper_data = generate_paper_format()
         paper = return_new_contents(paper_data+"\n", save_position, '## 📚논문 정리')
         update_text(paper,save_position)

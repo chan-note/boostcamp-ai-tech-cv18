@@ -14,12 +14,15 @@ def generate_paper_title():
 def generate_paper(paper_name:str, reviewer:str):
     return f'|{paper_name}|{reviewer}|'
 
+def generate_paper_format():
+    return f"\n{generate_paper_title()}\n\n| 논문 제목 | 리뷰어 |\n| ----- | --- |"
+
 def generate_week_format():
     week_format = generate_week_title()
     data = '- **📍임찬혁**\n- **📍서동환**\n- **📍박지완**\n- **📍김태한**\n- **📍임정아**\n- **📍이은아**'
     return f'\n{week_format}\n\n{data}'
 
-def generate_paper_format(changed_file:str):
+def revise_paper_format(changed_file:str):
     # 위치 분리
     directory_and_name = changed_file.split("/")
 
@@ -35,4 +38,5 @@ def generate_paper_format(changed_file:str):
         name = name_list[-1]
         name_index = -1
     return generate_paper(" ".join(name_list[0:name_index]),name)
-        
+
+def revise_week_format(): pass
