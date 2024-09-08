@@ -1,6 +1,6 @@
 import argparse
 from datetime import datetime
-from src import make_data
+from make_data import *
 
 # set arguement
 parser = argparse.ArgumentParser(description = 'Revise Readme')
@@ -21,7 +21,7 @@ def return_index_next_matching(matching:str, lines:list):
             # 날짜가 겹치는 지 확인한다.
             # 겹치면 -1 (추가하지 말라)를 추가한다.
             # 안 겹치면 그 줄의 line_number를 출력한다.
-                if matching == make_data.generate_week_title():
+                if matching == generate_week_title():
                     return -1
                 else:
                    return line_number
@@ -73,7 +73,7 @@ def update_text(contents:str, file_name:str):
 if __name__ == "__main__":
     args = parser.parse_args()
     save_position = "./README.md" if args.position == None else args.position
-    week_data = make_data.generate_week_format()
+    week_data = generate_week_format()
 
     if args.week:
         retro = return_new_contents(week_data+"\n", save_position, "## 👋주간 회고지")
@@ -84,5 +84,5 @@ if __name__ == "__main__":
 
     if args.month:
         # paper update
-        paper = return_new_contents(week_data+"\n", save_position, f"## {now.month}월 논문 발표")
+        paper = return_new_contents(week_data+"\n", save_position, generate_paper_title)
         update_text(paper,save_position)
