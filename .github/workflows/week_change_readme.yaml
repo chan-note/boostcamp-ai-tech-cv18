@@ -20,9 +20,11 @@ jobs:
     - run: python ./src/revise_readme.py -w
 
     - name: Git Push Action
+      env: 
+        check: ''
       run: |
         git config --global user.name ${{vars.name}}
         git config --global user.email ${{vars.email}}
         git add .
         git commit -m "change readme.md monthly automatically"
-        git push
+        git push https://${{vars.name}}:${{secrets.TESTTOKEN}}github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
