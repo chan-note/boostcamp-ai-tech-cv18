@@ -8,9 +8,6 @@ parser.add_argument('-w','--week', action='store_true')
 parser.add_argument('-m','--month', action='store_true')
 parser.add_argument('-pos','--position')
 
-# set data
-now = datetime.now()
-
 def return_index_next_matching(matching:str, lines:list):
     '''
     lines에서 matching과 일치하는 곳이 있다면,
@@ -24,7 +21,7 @@ def return_index_next_matching(matching:str, lines:list):
             # 날짜가 겹치는 지 확인한다.
             # 겹치면 -1 (추가하지 말라)를 추가한다.
             # 안 겹치면 그 줄의 line_number를 출력한다.
-                if matching == f"### {now.month}월 논문 발표" or matching == f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}":
+                if matching == make_data.generate_week_title():
                     return -1
                 else:
                    return line_number
