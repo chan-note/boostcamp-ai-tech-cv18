@@ -92,7 +92,7 @@ if __name__ == "__main__":
         print(category=='papers', category=='retros', category=='notes')
         if category == "papers":
             revise_data = revise_paper_format(title,name,args.changed)
-            revise_ = return_new_contents(revise_data+"\n", save_position, '## 📚논문 정리', paper_retro=True)
+            revise_ = return_new_contents(revise_data+"\n", save_position, '## 📚논문 정리', written_front=False,paper_retro=True)
             update_text(revise_, save_position)
         elif category == "retros":
             next_string = f"- **📍{name}"
