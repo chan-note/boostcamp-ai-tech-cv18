@@ -1,0 +1,51 @@
+name: add notes when push occurs
+
+on:
+  push:
+    branches:
+      - 임정아
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    # jobs로 들어오는 걸 목적으로 함
+    - name: Checkout
+      uses: actions/checkout@v4.1.7
+      with:
+        fetch-depth: 0
+
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v45
+      
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+
+    - name: Add paper list to readme.md
+      env: 
+        CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+      run: |
+        for file in ${CHANGED_FILES}; do
+          python ./src/revise_readme.py -m -c "$file"
+        done
+
+    - name: Get all changed markdown files
+      id: changed-markdown-files
+      uses: tj-actions/changed-files@v45
+      with:
+        # Avoid using single or double quotes for multiline patterns
+        files: |
+            README.md
+
+    - name: Git Push Action
+      if: steps.changed-markdown-files.outputs.only_changed == 'true'
+      run: |
+        git config --global user.name ${{vars.name}}
+        git config --global user.email ${{vars.email}}
+        git add .
+        git commit -m "change readme.md weekly automatically"
+        git push https://${{vars.name}}:${{secrets.TESTTOKEN}}github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git

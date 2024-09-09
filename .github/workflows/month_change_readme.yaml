@@ -2,7 +2,7 @@ name: Change Readme Weekly
 
 on:
     schedule: 
-        - cron: '00 10 * * 1'
+        - cron: '10 10 */31 * *'
 
 jobs:
   build:
@@ -17,11 +17,9 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - run: python ./src/revise_readme.py -w
+    - run: python ./src/revise_readme.py -m
 
     - name: Git Push Action
-      env: 
-        check: ''
       run: |
         git config --global user.name ${{vars.name}}
         git config --global user.email ${{vars.email}}
