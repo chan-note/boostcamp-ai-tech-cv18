@@ -44,12 +44,6 @@ jobs:
         CHANGED_FILES2=$(git status README.md -s)
         if [ -n "$CHANGED_FILES2" ]
         then
-          echo "True"
-        else
-          echo "False"
+          git commit -m "change readme.md weekly automatically"
+          git push https://${{secrets.TESTTOKEN}}@github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
         fi
-    # - name: Git Push
-    #   if: steps.changed-files2.outputs.any_changed == 'true'
-    #   run: |
-    #     git commit -m "change readme.md weekly automatically"
-    #     git push https://${{secrets.TESTTOKEN}}@github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
