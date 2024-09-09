@@ -33,7 +33,6 @@ jobs:
           echo "$file"
           python ./src/revise_readme.py -c "$file"
         done
-        cat README.md
 
     - name: Git Add Action
       run: |
