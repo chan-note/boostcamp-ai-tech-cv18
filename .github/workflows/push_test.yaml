@@ -30,7 +30,7 @@ jobs:
         CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
       run: |
         for file in ${CHANGED_FILES}; do
-          python ./src/revise_readme.py -m -c "$file"
+          python ./src/revise_readme.py -c "$file"
         done
 
     - name: Git Add Action
@@ -45,7 +45,7 @@ jobs:
       with:
         files: README.md
 
-    - name: Git Push Action
+    - name: Git Push
       if: steps.changed-files2.outputs.any_changed == 'true'
       run: |
         git commit -m "change readme.md weekly automatically"
