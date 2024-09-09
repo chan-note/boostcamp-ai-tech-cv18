@@ -89,6 +89,7 @@ if __name__ == "__main__":
     if args.changed:
         category,title,name = split_category_and_title(args.changed)
         file_position = decode_unicode_escape(args.changed)
+        file_position = file_position[1:-1]
         if category == "papers":
             revise_data = revise_paper_format(title,name,file_position)
             revise_ = return_new_contents(revise_data+"\n", save_position, '## 📚논문 정리', paper_retro=True)
