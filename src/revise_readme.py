@@ -7,7 +7,6 @@ parser = argparse.ArgumentParser(description = 'Revise Readme')
 parser.add_argument('-w','--week', action='store_true')
 parser.add_argument('-m','--month', action='store_true')
 parser.add_argument('-c','--changed')
-parser.add_argument('-pos','--position')
 parser.add_argument('-s','--save')
 
 def return_index_next_matching(matching:str, lines:list):
@@ -86,19 +85,19 @@ if __name__ == "__main__":
         paper = return_new_contents(paper_data+"\n", save_position, '## 📚논문 정리')
         update_text(paper,save_position)
 
-    if args.position:
-        category,title,name = split_category_and_title(args.position)
+    if args.changed:
+        category,title,name = split_category_and_title(args.changed)
         if category == "papers":
-            revise_data = revise_paper_format(title,name,args.position)
+            revise_data = revise_paper_format(title,name,args.changed)
             revise_ = return_new_contents(revise_data+"\n", save_position, '## 📚논문 정리')
             update_text(revise_, save_position)
         elif category == "retros":
             next_string = f"- **📍{name}"
-            revise_data = revise_week_format(title,args.position)
+            revise_data = revise_week_format(title,args.changed)
             revise_ = return_new_contents(revise_data+"\n", save_position, "## 👋주간 회고지", next_string = next_string, written_front=False)
             update_text(revise_, save_position)
         elif category == "notes":
             next_string = f"- **📍{name}"
-            revise_data = revise_week_format(title,args.position)
+            revise_data = revise_week_format(title,args.changed)
             revise_ = return_new_contents(revise_data+"\n", save_position, "## 📝주간 정리 (optional)", next_string = next_string, written_front=False)
             update_text(revise_, save_position)
