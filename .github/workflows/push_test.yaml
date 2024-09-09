@@ -30,6 +30,7 @@ jobs:
         CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
       run: |
         for file in ${CHANGED_FILES}; do
+          echo "$file"
           python ./src/revise_readme.py -c "$file"
         done
 
