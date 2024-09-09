@@ -33,17 +33,15 @@ jobs:
           python ./src/revise_readme.py -m -c "$file"
         done
 
-    - name: Get all changed markdown files
-      id: changed-markdown-files
-      run:
-        git status README.md -s
+    - name: Get changed files
+      id: changed-files2
+      uses: tj-actions/changed-files@v45
+      with:
+        files: README.md
 
     - name: Git Push Action
-      env:
-        CHANGED_MARKDOWN: ${{steps.changed-markdown-files.outputs}}
-      # if: ${CHANGED_MARKDOWN}
+      if: steps.changed-files2.outputs.any_changed == 'true'
       run: |
-        echo ${CHANGED_MARKDOWN}
         # git config --global user.name ${{vars.name}}
         # git config --global user.email ${{vars.email}}
         # git add .
