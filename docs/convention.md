@@ -1,24 +1,28 @@
-# naming convention
 
-## Directory convention
+# 이름 규칙
 
-- If you want to add directory, then name it 'topic/title + s'
-- recommand to use Eng 
+## 폴더 제목
 
-## file convention
+- 필요에 따라 Directory를 추가하고 싶으시다면, 반드시 `-s`를 넣어주세요
+- Directory 명은 영어로 써주세요.
 
-`date_name_title.md`
-- date(year(2 digits)+month+day)
-    - example: 240905
-- title
-    - recommand to use str
-    - if you wanna space, plz use '-' alternatively.
-- name
-    - 
-- if you have another version which has same date, name, title, plz add '_<number>' and add extension
-    - example: 240905_name_title_2.md
+## 파일 제목
 
-## position
+- `title_name_version.md`의 형태로 나타내주세요
+    - title
+        - 논문의 제목 혹은 주간 회고지/ 주간 정리의 제목을 나타냅니다.
+        - 이 제목 그대로 들어가며, 스페이스바는 `_`로 구분해주세요
+    - name
+        - 본인의 이름을 적어주시면 됩니다. 이 이름 그대로 리뷰어/회고지/정리의 이름 식별자로 쓰입니다.
+        - 혹시나 오타가 있어 이를 수정하고자 하는 경우엔 반드시 README.md가 중복해서 들어가지 않았는지 확인해주세요
+    - version
+        - 경우에 따라, 수정되었음 혹은 최종버전을 나타내는 숫자가 들어갈 수 있습니다.
+        - 이는 단순히 _1 등의 숫자로 나타내 주세요.
+        - 코드 내에서는 이를 무시합니다.
 
-- if you wanna put a paper, plz put the papers
-- if you wanna put
+# 저장 규칙
+
+- 논문에 관련된 내용은 `papers`에 넣은 뒤 업로드 해 주세요
+- 회고에 관련된 내용은 `retros`에 넣은 뒤 업로드 해 주세요
+- 정리에 관련된 내용은 `notes`에 넣은 뒤 업로드 해 주세요
+- 위에서 말한 파일 저장 형식을 참고해 넣어주세요
