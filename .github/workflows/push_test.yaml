@@ -38,6 +38,7 @@ jobs:
       run: |
         CHANGED_FILES2=$(git status README.md -s)
         echo "$CHANGED_FILES2"
+        git status README.md -s
         git config --global user.name ${{vars.name}}
         git config --global user.email ${{vars.email}}
         git add .
@@ -45,6 +46,7 @@ jobs:
     - name: check changed files
       run: |
         CHANGED_FILES2=$(git status README.md -s)
+        git status README.md -s
         echo "$CHANGED_FILES2"
         if [ -n "$CHANGED_FILES2" ]
         then
