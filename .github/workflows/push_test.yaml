@@ -32,12 +32,8 @@ jobs:
         for file in ${CHANGED_FILES}; do
           echo "$file"
           python ./src/revise_readme.py -c "$file"
-          git config --global user.name ${{vars.name}}
-          git config --global user.email ${{vars.email}}
-          git add .
-          git commit -m "REVISE_README"
-          git push https://${{secrets.TESTTOKEN}}@github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
         done
+        cat README.md
 
     # - name: Git Add Action
     #   run: |
