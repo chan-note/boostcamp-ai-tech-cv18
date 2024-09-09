@@ -47,6 +47,7 @@ jobs:
           echo "True"
         else
           echo "False"
+        fi
     # - name: Git Push
     #   if: steps.changed-files2.outputs.any_changed == 'true'
     #   run: |
