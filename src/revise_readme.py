@@ -88,17 +88,18 @@ if __name__ == "__main__":
 
     if args.changed:
         category,title,name = split_category_and_title(args.changed)
+        file_position = decode_unicode_escape(args.changed)
         if category == "papers":
-            revise_data = revise_paper_format(title,name,args.changed)
+            revise_data = revise_paper_format(title,name,file_position)
             revise_ = return_new_contents(revise_data+"\n", save_position, '## 📚논문 정리', paper_retro=True)
             update_text(revise_, save_position)
         elif category == "retros":
             next_string = f"- **📍{name}"
-            revise_data = revise_week_format(title,args.changed)
+            revise_data = revise_week_format(title,file_position)
             revise_ = return_new_contents(revise_data+"\n", save_position, "## 👋주간 회고지", next_string = next_string, written_front=False)
             update_text(revise_, save_position)
         elif category == "notes":
             next_string = f"- **📍{name}"
-            revise_data = revise_week_format(title,args.changed)
+            revise_data = revise_week_format(title,file_position)
             revise_ = return_new_contents(revise_data+"\n", save_position, "## 📝주간 정리 (optional)", next_string = next_string, written_front=False)
             update_text(revise_, save_position)
