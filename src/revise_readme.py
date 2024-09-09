@@ -20,7 +20,6 @@ def return_index_next_matching(matching:str, lines:list, compare_string:str):
         line = line.strip()
         # 날짜가 겹치는 지 확인한다. 겹치면 -1
         if line == compare_string:
-            print(line, compare_string)
             return -1
         elif matching == line[:len(matching)]:
             return line_number
@@ -89,7 +88,6 @@ if __name__ == "__main__":
 
     if args.changed:
         category,title,name = split_category_and_title(args.changed)
-        print(category,title,name)
         if category == "papers":
             revise_data = revise_paper_format(title,name,args.changed)
             revise_ = return_new_contents(revise_data+"\n", save_position, '## 📚논문 정리', paper_retro=True)
