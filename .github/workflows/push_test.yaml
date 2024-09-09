@@ -39,10 +39,13 @@ jobs:
         git status README.md -s
 
     - name: Git Push Action
-      if: steps.changed-markdown-files.outputs
+      env:
+        CHANGED_MARKDOWN: ${{steps.changed-markdown-files.outputs}}
+      # if: ${CHANGED_MARKDOWN}
       run: |
-        git config --global user.name ${{vars.name}}
-        git config --global user.email ${{vars.email}}
-        git add .
-        git commit -m "change readme.md weekly automatically"
-        git push https://${{vars.name}}:${{secrets.TESTTOKEN}}github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
+        echo ${CHANGED_MARKDOWN}
+        # git config --global user.name ${{vars.name}}
+        # git config --global user.email ${{vars.email}}
+        # git add .
+        # git commit -m "change readme.md weekly automatically"
+        # git push https://${{vars.name}}:${{secrets.TESTTOKEN}}github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
