@@ -19,10 +19,17 @@ def generate_week_format():
     data = '- **📍임찬혁**\n- **📍서동환**\n- **📍박지완**\n- **📍김태한**\n- **📍임정아**\n- **📍이은아**'
     return f'\n{week_format}\n\n{data}'
 
+def check_format_and_return_title(format:str):
+    if format == "## 👋주간 회고지" or format == "## 📝주간 정리 (optional)":
+        return generate_week_title()
+    elif format == '## 📚논문 정리':
+        return generate_paper_title()
+    else :return ''
+
 def split_category_and_title(changed_file:str):
     # split directory and name
     directory_and_name = changed_file.split("/")
-    directory, name = directory_and_name[-2], directory_and_name[-1]
+    directory, name = directory_and_name[0], directory_and_name[-1]
 
     # split title_name_version and extension
     title_name_version, _ = name.split(".")
