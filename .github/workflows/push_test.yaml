@@ -35,14 +35,11 @@ jobs:
 
     - name: Get all changed markdown files
       id: changed-markdown-files
-      uses: tj-actions/changed-files@v45
-      with:
-        # Avoid using single or double quotes for multiline patterns
-        files: |
-            README.md
+      run:
+        git status README.md -s
 
     - name: Git Push Action
-      if: steps.changed-markdown-files.outputs.only_changed == 'true'
+      if: steps.changed-markdown-files.outputs
       run: |
         git config --global user.name ${{vars.name}}
         git config --global user.email ${{vars.email}}
