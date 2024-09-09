@@ -6,7 +6,9 @@ end = now + timedelta(days = 5)
 __init__ = ['generate_week_title', 'generate_paper_title', 'generate_paper', 'generate_week_format']
 
 def decode_unicode_escape(input_string):
-    if is_korean(input_string[0]):
+    if input_string == '':
+        return input_string
+    elif is_korean(input_string[0]):
         return input_string
     else:
         byte_str = bytes(input_string.encode('utf-8').decode('unicode_escape'), 'latin1')

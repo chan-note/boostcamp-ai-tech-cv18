@@ -3,7 +3,7 @@ name: add notes when push occurs
 on:
   push:
     branches:
-      - main
+      - 임정아
 
 jobs:
   build:
@@ -33,7 +33,6 @@ jobs:
           echo "$file"
           python ./src/revise_readme.py -c "$file"
         done
-        cat README.md
 
     - name: Git Add Action
       run: |
