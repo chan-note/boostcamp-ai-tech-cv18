@@ -30,7 +30,6 @@ jobs:
         CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
       run: |
         for file in ${CHANGED_FILES}; do
-          echo "$file"
           python ./src/revise_readme.py -c "$file"
         done
 
@@ -39,20 +38,12 @@ jobs:
         git config --global user.name ${{vars.name}}
         git config --global user.email ${{vars.email}}
         git add .
-      
-    - name: Get changed files
-      id: changed-files2
-      uses: tj-actions/changed-files@v45
-      with:
-        files: README.md
 
     - name: check changed files
       env:
-        CHANGED_FILES2: ${{ steps.changed-files2.outputs.all_changed_files }}
+        CHANGED_FILES2: $( git status README.md -s )
       run: |
-        for file in ${CHANGED_FILES2}; do
-          echo "$file"
-        done
+        echo "$CHANGED_FILES2"
     # - name: Git Push
     #   if: steps.changed-files2.outputs.any_changed == 'true'
     #   run: |
