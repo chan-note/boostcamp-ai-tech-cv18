@@ -3,7 +3,7 @@ name: add notes when push occurs
 on:
   push:
     branches:
-      - main
+      - 임정아
 
 jobs:
   build:
