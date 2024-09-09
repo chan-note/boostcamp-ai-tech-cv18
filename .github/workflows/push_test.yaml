@@ -36,6 +36,8 @@ jobs:
 
     - name: Git Add Action
       run: |
+        CHANGED_FILES2=$(git status README.md -s)
+        echo "$CHANGED_FILES2"
         git config --global user.name ${{vars.name}}
         git config --global user.email ${{vars.email}}
         git add .
