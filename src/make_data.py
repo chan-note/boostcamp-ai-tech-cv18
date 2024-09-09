@@ -27,6 +27,9 @@ def check_format_and_return_title(format:str):
     else :return ''
 
 def split_category_and_title(changed_file:str):
+    #split "" delimeter
+    directory_and_name = directory_and_name[1:-1]
+
     # split directory and name
     directory_and_name = changed_file.split("/")
     directory, name = directory_and_name[0], directory_and_name[-1]
