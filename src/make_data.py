@@ -5,6 +5,18 @@ end = now + timedelta(days = 5)
 
 __init__ = ['generate_week_title', 'generate_paper_title', 'generate_paper', 'generate_week_format']
 
+def decode_unicode_escape(input_string):
+    if is_korean(input_string[0]):
+        return input_string
+    else:
+        byte_str = bytes(input_string.encode('utf-8').decode('unicode_escape'), 'latin1')
+        decoded_str = byte_str.decode('utf-8')
+        return decoded_str
+
+def is_korean(char):
+    """문자가 한글인지 확인하는 함수"""
+    return '가' <= char <= '힣'
+
 def generate_week_title():
     return f"### {now.strftime('%y.%m.%d')} {now.strftime('%a').upper()} - {end.strftime('%y.%m.%d')} {end.strftime('%a').upper()}"
 
@@ -46,7 +58,11 @@ def split_category_and_title(changed_file:str):
         name = title_name_version[-1]
         name_index = -1
     title = " ".join(title_name_version[0:name_index])
-    return (directory,title,name)
+
+    title = decode_unicode_escape(title)
+    name = decode_unicode_escape(name)
+    result = (directory,title,name)
+    return result
 
 def revise_paper_format(paper_name:str, reviewer:str, url:str):
     return f'|{paper_name}|[{reviewer}]({url})|'
