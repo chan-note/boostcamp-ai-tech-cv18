@@ -45,8 +45,15 @@ jobs:
       with:
         files: README.md
 
-    - name: Git Push
-      if: steps.changed-files2.outputs.any_changed == 'true'
+    - name: check changed files
+      env:
+        CHANGED_FILES2: ${{ steps.changed-files2.outputs.all_changed_files }}
       run: |
-        git commit -m "change readme.md weekly automatically"
-        git push https://${{secrets.TESTTOKEN}}@github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
+        for file in ${CHANGED_FILES2}; do
+          echo "$file"
+        done
+    # - name: Git Push
+    #   if: steps.changed-files2.outputs.any_changed == 'true'
+    #   run: |
+    #     git commit -m "change readme.md weekly automatically"
+    #     git push https://${{secrets.TESTTOKEN}}@github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
