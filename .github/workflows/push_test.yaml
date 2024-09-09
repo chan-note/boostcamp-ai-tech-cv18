@@ -42,14 +42,6 @@ jobs:
         git config --global user.name ${{vars.name}}
         git config --global user.email ${{vars.email}}
         git add .
+        git commit -m "REVISE_README"
+        git push https://${{secrets.TESTTOKEN}}@github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
 
-    - name: check changed files
-      run: |
-        CHANGED_FILES2=$(git status README.md -s)
-        git status README.md -s
-        echo "$CHANGED_FILES2"
-        if [ -n "$CHANGED_FILES2" ]
-        then
-          git commit -m "change readme.md weekly automatically"
-          git push https://${{secrets.TESTTOKEN}}@github.com/nOctaveLay/2024-BOOSTCAMP-CV-18.git
-        fi
