@@ -40,9 +40,8 @@ jobs:
         git add .
 
     - name: check changed files
-      env:
-        CHANGED_FILES2: $( git status README.md -s )
       run: |
+        CHANGED_FILES2=$(git status README.md -s)
         echo "$CHANGED_FILES2"
     # - name: Git Push
     #   if: steps.changed-files2.outputs.any_changed == 'true'
