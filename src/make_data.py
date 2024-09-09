@@ -1,7 +1,7 @@
 
 from datetime import datetime, timedelta
 now = datetime.now()
-end = now + timedelta(days = 5)
+end = now + timedelta(days = 4)
 
 __init__ = ['generate_week_title', 'generate_paper_title', 'generate_paper', 'generate_week_format']
 
